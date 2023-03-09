@@ -338,6 +338,10 @@ func compareGeneve(t *testing.T, expected, actual *Geneve) {
 		t.Fatal("Geneve.InnerProtoInherit doesn't match")
 	}
 
+	if actual.FlowBased != expected.FlowBased {
+		t.Fatal("Geneve.FlowBased doesn't match")
+	}
+
 	// TODO: we should implement the rest of the geneve methods
 }
 

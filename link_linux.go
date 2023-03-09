@@ -2666,7 +2666,7 @@ func addGeneveAttrs(geneve *Geneve, linkInfo *nl.RtAttr) {
 
 	if geneve.FlowBased {
 		// In flow based mode, no other attributes need to be configured
-		linkInfo.AddRtAttr(nl.IFLA_GENEVE_COLLECT_METADATA, boolAttr(geneve.FlowBased))
+		data.AddRtAttr(nl.IFLA_GENEVE_COLLECT_METADATA, []byte{})
 		return
 	}
 
