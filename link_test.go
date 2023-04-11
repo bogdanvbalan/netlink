@@ -14,7 +14,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/vishvananda/netlink/nl"
+	"github.com/bogdanvbalan/netlink/nl"
 	"github.com/vishvananda/netns"
 	"golang.org/x/sys/unix"
 )
@@ -334,6 +334,14 @@ func compareGeneve(t *testing.T, expected, actual *Geneve) {
 		t.Fatalf("Geneve.Remote is not equal: %s!=%s", actual.Remote, expected.Remote)
 	}
 
+	if actual.InnerProtoInherit != expected.InnerProtoInherit {
+		t.Fatal("Geneve.InnerProtoInherit doesn't match")
+	}
+
+	if actual.FlowBased != expected.FlowBased {
+		t.Fatal("Geneve.FlowBased doesn't match")
+	}
+
 	// TODO: we should implement the rest of the geneve methods
 }
 
@@ -396,7 +404,7 @@ func compareGretap(t *testing.T, expected, actual *Gretap) {
 
 	if actual.FlowBased != expected.FlowBased {
 		t.Fatal("Gretap.FlowBased doesn't match")
-	 }
+	}
 }
 
 func compareGretun(t *testing.T, expected, actual *Gretun) {
