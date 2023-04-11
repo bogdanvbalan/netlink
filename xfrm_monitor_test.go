@@ -7,7 +7,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/vishvananda/netlink/nl"
+	"github.com/bogdanvbalan/netlink/nl"
 )
 
 func TestXfrmMonitorExpire(t *testing.T) {
